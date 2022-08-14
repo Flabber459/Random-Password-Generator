@@ -1,4 +1,4 @@
-/*
+
 // Assignment code here
 
 
@@ -7,7 +7,7 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  window.prompt("How many characters?")
+//  window.prompt("How many characters?") 
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
   
@@ -16,13 +16,36 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", makePassword);
 
-*/
+// Below creates (number amount of) random letters
+
+function makePassword() {
+
+  var number = window.prompt("How many characters?");
+  var space = "";
+
+  for (var i = 0; i < number; i++) {
+    var uppercase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+    if (number >=8 && number <= 128) {
+    
+    var randomUpper = uppercase[Math.floor(Math.random() * uppercase.length)]
+    space += randomUpper + "";
+
+  document.getElementById("password").innerHTML = space;
+  console.log(space)
+    }
+  }
+}
+
+
+
+
+
 // Order: How many characters (8-128), ok for special characters, numeric characters,
 // lowercase, uppercase
 
-
+/*
 var uppercase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 var randomUpper = uppercase[Math.floor(Math.random() * uppercase.length)]
 console.log(randomUpper);
@@ -53,3 +76,4 @@ window.confirm("lowercase");
 
 window.confirm("uppercase");
 }
+*/
