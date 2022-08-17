@@ -12,15 +12,17 @@ var generateBtn = document.querySelector("#generate");
 generateBtn.addEventListener("click", writePassword);
 
 function writePassword() {
-  
+
   var characters = 
   prompt("How many characters would you like your password to contain?");
   
   if (isNaN(characters)) { // if user did not type a number
-    document.getElementById("password").innerHTML = "Please choose a number between 8 and 128."
+    alert("Please choose a number between 8 and 128.");
+    document.getElementById("password").innerHTML = ""
     return;
   } else if (characters < 8 || characters > 128) {
-    document.getElementById("password").innerHTML = "Please choose a number between 8 and 128."
+    alert("Please choose a number between 8 and 128.")
+    document.getElementById("password").innerHTML = ""
     return;
   } else { // If user inputs a number with a correct value
 
@@ -52,12 +54,14 @@ function writePassword() {
         document.getElementById("password").innerHTML = password; // puts password into textbox
       }
     }
-    // If user did not select any character type, puts the following message instead
+    // If user did not select any character type, shows the following message instead
     if (lowercaseCheck === false &&
       uppercaseCheck === false &&
       numericCheck === false &&
       specialCheck === false) { 
-      document.getElementById("password").innerHTML = "Please choose at least one type of character to include in your password."
-    } 
+      alert("Please choose at least one type of character to include in your password.")
+      document.getElementById("password").innerHTML = ""
+    }
   }
+combined = []; // Empties contents of array for next use of the function
 }
